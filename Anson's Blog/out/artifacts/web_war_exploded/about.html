@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于Anson</title>
+    <link rel="stylesheet" href="css/about.css"/>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script src="js/pro.js"></script>
+    <script>
+        function clickpic1(e) {
+            var name = document.getElementById("i1").className;
+            if(name=="i1before"){
+                document.getElementById("i1").setAttribute("class","i1after")
+            }
+            if(name=="i1after"){
+                document.getElementById("i1").setAttribute("class","i1before")
+            }
+        }
+    </script>
+    <script>
+        function clickpic2(e) {
+            var name = document.getElementById("i2").className;
+            if(name=="i2before"){
+                document.getElementById("i2").setAttribute("class","i2after")
+            }
+            if(name=="i2after"){
+                document.getElementById("i2").setAttribute("class","i2before")
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="bar" class="scrollbar"></div>
+<div id="switch">
+    <div id="iconfixed">
+        <div class="icon"></div>
+    </div>
+</div>
+<div id="left-nav">
+    <div class="author-nav">
+        <img src="img/index.png" alt="个人头像">
+    </div>
+    <div class="main-nav">
+        <ul style="list-style: none">
+            <a href="index.html">
+                <li>返回主页</li>
+            </a>
+            <a href="blog.jsp">
+                <li>博客</li>
+            </a>
+            <a href="pro.jsp">
+                <li>工程</li>
+            </a>
+            <a href="about.html">
+                <li>关于我</li>
+            </a>
+            <a href="login.jsp">
+                <li>控制台</li>
+            </a>
+        </ul>
+    </div>
+</div>
+<div id="wrap">
+    <div class="personal">
+        <h2>个人资料</h2>
+        <span class="info">
+            <ul class="baseinfo">
+                <li>姓名：何宇浩</li><br>
+                <li>性别：男</li><br>
+                <li>出生年月：2001.07</li><br>
+                <li>英文名：Anson</li><br>
+                <li>学历：本科在读</li><br>
+            </ul>
+            <ul class="moreinfo">
+                <li>QQ：1597893898</li><br>
+                <li>微信/手机：18128211133</li><br>
+                <li>Github：<a href="https://github.com/Anson-He" title="https://github.com/Anson-He">AnsonHe</a></li><br>
+                <li>个人博客：<a href="http://anson-he.work/" title="http://anson-he.work/">Anson生产BUG的地方</a></li><br>
+                <li>邮箱：<a href="mailto:hyh20010710@163.com" title="mailto:hyh20010710@163.com">hyh20010710@163.com</a></li><br>
+            </ul>
+        </span>
+        <span class="pic1">
+            <img src="img/index.png">
+        </span>
+    </div>
+    <div class="skill">
+        <h2>掌握的技能</h2>
+        <div class="skillinfo">
+            <span class="ml">
+                <img src="img/ml.png">
+                <h3 style="margin-left: 2%">机器学习</h3>
+                <p style="margin-left: -3%">熟悉机器学习的基本原理与使用</p><br>
+            </span>
+            <span class="dl">
+                <img src="img/dl.png">
+                <h3 style="margin-left: 12%"> 深度学习</h3>
+                <p style="margin-left: -15%">熟悉深度学习的基本原理与使用</p>
+            </span>
+            <span class="da">
+                <img src="img/da.png">
+                <h3 style="margin-left: 12%">数据分析</h3>
+                <p style="margin-left: 8%">擅长数据分析</p><br>
+            </span>
+        </div>
+    </div>
+    <div class="works">
+        <h2>个人作品</h2>
+        <img src="img/iknowfosu.jpg" title="iknow佛大" alt="iknow佛大" id="i1" class="i1before" onclick="clickpic1()">
+        <img src="img/fqgc.jpg" title="佛趣广场" alt="佛趣广场" id="i2" class="i2before" onclick="clickpic2()">
+        <br><br>
+    </div>
+    <div class="experience">
+        <h2>项目经历</h2>
+        <div class="self">
+            <ul class="timeline">
+                <li>参加2020年学术基金《多平台通用表单工具》并成功结项；</li>
+                <li>主持2020年实验室开放创新基金《基于智慧校园理念的新生小助手》并成功结项；</li>
+                <li>参加2021年学术基金《粤港澳大湾区智慧城市建设的多元典型模式与路径研究——基于广佛深莞的典型调查》并成功立项；</li>
+                <li>主持2021年实验室开放创新基金《基于深度学习时间序列集成方法的量化投资策略研究》并成功立项；</li>
+                <li>主持2021年学术基金《基于时间集成图卷积网络的新冠疫情数据分析与预测》并成功立项；</li>
+                <li>主持2021年大学生创新创业训练项目《基于拓扑时变图卷积网络的新冠疫情数据分析与预测》获得校级立项；</li>
+                <li>参与2021年大学生创新创业训练项目《基于鲁棒子空间学习与时空 信息素的穿墙跟踪方法研究》获得国家级立项；</li>
+                <li>---未完待续---</li><br>
+            </ul>
+        </div>
+        <div class="exp">
+            <img src="img/img1.jpg">
+        </div>
+    </div>
+    <footer>
+        <p>© <span>2021</span><span><a href="http://anson-he.work/"> • Anson生产BUG的日常</a></span><span></span><span></span><a href="http://beian.miit.gov.cn/"> • 粤ICP备2021021622号-1</a></p>
+    </footer>
+</div>
+</body>
+</html>
