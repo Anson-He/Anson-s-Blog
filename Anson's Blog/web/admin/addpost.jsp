@@ -97,10 +97,17 @@
         UUID uuid = UUID.randomUUID();
         String str = uuid.toString();
         String num=str.replace("-", "");
-        String sql0 = "insert into blogs(id,title,cla,date,deatial,sub) values('"+num+"','"+title+"','"+cla+"','"+date+"','"+html+"','"+sub+"');";
-        Statement stsm0 = null;
-        stsm0 = con000.createStatement();
-        int count2 = stsm0.executeUpdate(sql0);
+        String sql0 = "insert into blogs(id,title,cla,date,deatial,sub) values(?,?,?,?,?,?)";
+        PreparedStatement ps = null;
+        ps = con000.prepareStatement(sql0);
+        //'"+num+"','"+title+"','"+cla+"','"+date+"','"+html+"','"+sub+"');
+        ps.setString(1,num);
+        ps.setString(2,title);
+        ps.setString(3,cla);
+        ps.setString(4,date);
+        ps.setString(5,html);
+        ps.setString(6,sub);
+        int count2 = ps.executeUpdate();
         if(count2 > 0)
         {
             System.out.println("添加成功！");
@@ -109,7 +116,7 @@
             System.out.println("添加失败");
         }
         p.close();
-        stsm0.close();
+        ps.close();
         con000.close();
     }
     else if(id!=null&&title!=null){

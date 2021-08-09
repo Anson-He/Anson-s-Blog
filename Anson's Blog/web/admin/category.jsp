@@ -102,17 +102,24 @@
         }
         function ad() {
             var text = document.getElementById("classes").value;
-            if(text!=''){
+            if(text.indexOf("'")!=-1){
+                alert("类名请勿使用单引号(')")
+            }
+            else if(text!=''){
                 window.location.href="category.jsp?text="+text;
                 <%
                     String cl2 = request.getParameter("text");
                     if(cl2!=null){
-                        String sql222 = "insert into tags value("+"'"+cl2+"')";
+//                        String sql222 = "insert into tags value("+"'"+cl2+"')";
+                        String sql222 = "insert into tags value(?)";
                         Connection con22 = null;
                         con22 = GetDBConnection.getConnection();
-                        Statement stsm2 = null;
-                        stsm2 = con22.createStatement();
-                        int count2 = stsm2.executeUpdate(sql222);
+                        PreparedStatement ps = null;
+                        ps = con22.prepareStatement(sql222);
+                        ps.setString(1,cl2);
+//                        Statement stsm2 = null;
+//                        stsm2 = con22.createStatement();
+                        int count2 = ps.executeUpdate();
                         if(count2 > 0)
                         {
                             System.out.println("添加成功！");
@@ -120,7 +127,7 @@
                         else{
                             System.out.println("添加失败");
                         }
-                        stsm2.close();
+                        ps.close();
                         con22.close();
                     }
                 %>

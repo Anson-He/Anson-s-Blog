@@ -25,8 +25,8 @@
             var cla = myselect.options[index].value;
             window.location.href="postlist.jsp?sub_id="+cla;
         }
-        function del(i,t) {
-            var a = window.confirm("确定要删除标题为《"+t+"》的文章吗？")
+        function del(i) {
+            var a = window.confirm("确定要删除该文章吗？")
             if (a==true){
                 window.location.href="postlist.jsp?ii="+i;
                 <%
@@ -179,7 +179,7 @@
             <td><%=dates.get(i)%></td>
             <td>
                 <br><button type="button" class="btn1"><a href="change.jsp?id=<%=ids.get(i)%>&article-title=<%=titles.get(i)%>" style="text-decoration: none">修改</a></button><br>
-                <br><button type="button" class="btn2" onclick="del('<%=ids.get(i)%>','<%=titles.get(i)%>')">删除
+                <br><button type="button" class="btn2" onclick="del('<%=ids.get(i)%>')">删除
                 </button><br><br>
             </td>
         </tr>

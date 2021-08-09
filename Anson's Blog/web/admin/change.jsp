@@ -97,11 +97,19 @@
     pp.close();
     rr.close();
     if(change!=null){
-        String s2 = "update blogs set title="+"'"+title+"',deatial="+"'"+html+"',cla='"+cla+"',date='"+date+"',sub='"+sub+"'"+" where id="+"'"+id+"'";
+//        String s2 = "update blogs set title="+"'"+title+"',deatial="+"'"+html+"',cla='"+cla+"',date='"+date+"',sub='"+sub+"'"+" where id="+"'"+id+"'";
+        String s2 = "update blogs set title=?,deatial=?,cla=?,date=?,sub=? where id="+"'"+id+"'";
         System.out.println(s2);
-        Statement stsm0 = null;
-        stsm0 = con000.createStatement();
-        int count2 = stsm0.executeUpdate(s2);
+        PreparedStatement ps = null;
+        ps = con000.prepareStatement(s2);
+        ps.setString(1,title);
+        ps.setString(2,html);
+        ps.setString(3,cla);
+        ps.setString(4,date);
+        ps.setString(5,sub);
+//        Statement stsm0 = null;
+//        stsm0 = con000.createStatement();
+        int count2 = ps.executeUpdate();
         if(count2 > 0)
         {
             System.out.println("修改成功！");
@@ -109,7 +117,7 @@
         else{
             System.out.println("修改失败");
         }
-        stsm0.close();
+        ps.close();
         String s3 = "select * from blogs where id="+"'"+id+"'";
         PreparedStatement pp3 = con000.prepareStatement(s3);
         ResultSet rr3 = pp3.executeQuery();
